@@ -35,9 +35,18 @@ export async function getQuestionCapsules () {
 }
 
 export async function submitReply (id, reply) {
-  await post(baseUrl + '/question_capsule/' + id, {
-    'answer': reply
-  })
+  if (reply.length === 0) {
+    Message({
+      message: '长度不能为空',
+      type: 'error'
+    })
+    return false
+  } else {
+    await post(baseUrl + '/question_capsule/' + id, {
+      'answer': reply
+    })
+    return true
+  }
 }
 
 export async function getMails () {

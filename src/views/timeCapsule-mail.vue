@@ -1,7 +1,13 @@
 <template>
     <div class="timeCapsuleMail">
         <div class="container">
-            <div class="content">{{content}}</div>
+            <div class="content" v-show="type">{{content}}</div>
+            <div class="video" v-show="!type">
+              <audio controls>
+                <source :src="url" type="audio/mpeg">
+              您的浏览器不支持 audio 元素。
+              </audio>
+            </div>
             <img :src="logo" class="logo"/>
         </div>
         <div class="btn more" @click="getMore">
@@ -23,13 +29,24 @@ export default {
   data () {
     return {
       content: '',
+      url: '',
       getMoreBtn: getMoreBtn,
       backBtn: backBtn,
-      logo: logo
+      logo: logo,
+      type: true
     }
   },
   mounted () {
-    this.content = JSON.parse(window.sessionStorage.getItem('mailContent')).content
+    let res = JSON.parse(window.sessionStorage.getItem('mailContent'))
+    switch (res.type) {
+      case 'text':
+        this.content = res.content
+        this.type = true
+        break
+      case 'audio':
+        this.url = res.url
+        this.type = false
+    }
   },
   methods: {
     getMore () {
@@ -65,7 +82,7 @@ export default {
   box-shadow: 4px 4px 1px rgb(173, 173, 173,0.3);
   position: relative;
 }
-.content {
+.content,.video {
   width: 72vw;
   margin-top: 4vh;
 }

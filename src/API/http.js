@@ -5,7 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 let loadingInstance = null // 加载全局的loading
 
 const instance = axios.create({
-  timeout: 5000
+  timeout: 10000
   // headers: {
   //   token: sessionStorage.getItem('token') || ''
   // }

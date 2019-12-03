@@ -7,20 +7,20 @@
             <p>取信码：</p>
             <input class="mailCode" v-model="code">
         </div>
-        <div class="btn" @click="getMail">
+        <div class="btn" @click="getMail" v-show="isShow">
           <img :src="getMailBtn" />
         </div>
-        <div class="Tboy" @click="chat()">
+        <div class="Tboy" @click="chat()" v-show="isShow">
           <img :src="Tboy" />
         </div>
-        <div class="arrow" v-show="!isClick">
+        <div class="arrow" v-show="!isClick&&isShow">
           <img :src="arrow" />
         </div>
-        <div class="chatFrame" v-show="isClick" >
+        <div class="chatFrame" v-show="isClick&&isShow" >
           <!-- <img :src="chatFrame" /> -->
-           <div class="chatContent">梯仔悄悄告诉你~<br/>通过时光胶囊，共有{{total_count}}人收到了来<br/>自朋友的信件，你也是其中之一。<br/>明年也要继续参加哦~</div>
+           <div class="chatContent">梯仔悄悄告诉你~<br/>通过时光胶囊，共有{{total_count}}人收到了来自朋友的信件，你也是其中之一。明年也要继续参加哦~</div>
         </div>
-        <div class="tip" v-show="!isClick">戳我!戳我!</div>
+        <div class="tip" v-show="!isClick&&isShow">戳我!戳我!</div>
     </div>
 </template>
 <script>
@@ -46,10 +46,33 @@ export default {
       chatFrame: chatFrame,
       arrow: arrow,
       isClick: false,
-      total_count: '',
+      total_count: 2213,
       bgImg: {
         backgroundImage: 'url(' + url + ')'
+      },
+      docmHeight: document.documentElement.clientHeight || document.body.clientHeight,
+      showHeight: document.documentElement.clientHeight || document.body.clientHeight,
+      isShow: true
+    }
+  },
+  watch: {
+    // 监听显示高度
+    showHeight: function () {
+      if (this.docmHeight > this.showHeight) {
+      // 隐藏
+        this.isShow = false
+      } else {
+      // 显示
+        this.isShow = true
       }
+    }
+  },
+  mounted () {
+    // 监听事件
+    window.onresize = () => {
+      return (() => {
+        this.showHeight = document.documentElement.clientHeight || document.body.clientHeight
+      })()
     }
   },
   methods: {
@@ -88,7 +111,8 @@ export default {
     border-radius:2vw;
     border: 0.5vw solid #a8bee3;
     background-color: transparent;
-    width: 68vw;
+    width: 67vw;
+    padding-left: 1vw;
     height: 5vh;
     outline:none;
 }

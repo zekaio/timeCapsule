@@ -7,10 +7,10 @@
           <p>取信码：</p>
           <input class="mailCode" v-model="code">
         </div>
-        <div class="btn" @click="getMail">
+        <div class="btn" @click="getMail" v-show="isShow">
           <img :src="goToMail" />
         </div>
-        <div class="star">
+        <div class="star" v-show="isShow">
           <img :src="star" />
         </div>
     </div>
@@ -28,7 +28,30 @@ export default {
     return {
       code: '',
       goToMail: goToMail,
-      star: star
+      star: star,
+      docmHeight: document.documentElement.clientHeight || document.body.clientHeight,
+      showHeight: document.documentElement.clientHeight || document.body.clientHeight,
+      isShow: true
+    }
+  },
+  watch: {
+    // 监听显示高度
+    showHeight: function () {
+      if (this.docmHeight > this.showHeight) {
+      // 隐藏
+        this.isShow = false
+      } else {
+      // 显示
+        this.isShow = true
+      }
+    }
+  },
+  mounted () {
+    // 监听事件
+    window.onresize = () => {
+      return (() => {
+        this.showHeight = document.documentElement.clientHeight || document.body.clientHeight
+      })()
     }
   },
   methods: {
@@ -75,7 +98,8 @@ export default {
   border-radius:2vw;
   border: 0.5vw solid #a8bee3;
   background-color: transparent;
-  width: 68vw;
+  width: 67vw;
+  padding-left: 1vw;
   height: 5vh;
   color:#666666;
   outline:none;
