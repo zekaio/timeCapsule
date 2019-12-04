@@ -1,21 +1,18 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>
-
-import { isParticipant } from './API/apis'
+import { isParticipant, wxlogin } from './API/apis'
 
 export default {
   name: 'app',
-  data: function () {
-    return {
-    }
+  data () {
+    return {}
   },
   async mounted () {
-    // checkLogin()
-    // if (window.sessionStorage.getItem('isLogin') === 'undefined') { window.sessionStorage.setItem('isLogin', checkLogin()) }
+    wxlogin()
     let res = await isParticipant()
     if (res) {
       this.$router.push({

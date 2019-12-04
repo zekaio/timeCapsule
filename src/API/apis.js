@@ -1,8 +1,15 @@
-import { get, post } from './http'
-import { baseUrl } from './api.config'
+import {
+  get,
+  post
+} from './http'
+import {
+  baseUrl
+} from './api.config'
 import wx from 'weixin-js-sdk'
 import qs from 'qs'
-import { Message } from 'element-ui'
+import {
+  Message
+} from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 export async function isParticipant () {
@@ -43,7 +50,7 @@ export async function submitReply (id, reply) {
     return false
   } else {
     await post(baseUrl + '/question_capsule/' + id, {
-      'answer': reply
+      answer: reply
     })
     return true
   }
@@ -63,26 +70,17 @@ export async function getMails () {
   }
 }
 
-export function checkLogin () {
-  // var checkurl = ''
-  // let res = get(checkurl)
-  // wxlogin()
-  // if (res.errcode !== 0 || res.errcode === 400) {
-  // location.href = 'https://hemc.100steps.net/2017/wechat/Home/Index/index?state=' + encodeURIComponent(location.href)
-  // window.location.href = 'https://hemc.100steps.net/2017/wechat/Home/Index/getUserInfo'
-  // } else {
-  // return true
-  // }
-}
-
 export function wxlogin () {
   fetch('https://hemc.100steps.net/2017/wechat/Home/Public/getJsApi', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: qs.stringify({ url: location.href.split('#')[0] })
-  }).then(res => res.json())
+    body: qs.stringify({
+      url: location.href.split('#')[0]
+    })
+  })
+    .then(res => res.json())
     .then(res => {
       wx.config({
         debug: false,
