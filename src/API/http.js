@@ -33,7 +33,7 @@ instance.interceptors.response.use(response => {
     return Promise.resolve(response.data)
   } else if (response.status === 404) {
     Message({
-      message: '取件码无效，请重新输入',
+      message: '未找到信件',
       type: 'error'
     })
   } else {
