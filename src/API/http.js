@@ -44,10 +44,10 @@ instance.interceptors.response.use(
     loadingInstance.close()
     let response = error.response
     if (response.status === 404) {
-      Message({
-        message: '未找到信件',
-        type: 'error'
-      })
+      // Message({
+      //   message: '未找到信件',
+      //   type: 'error'
+      // })
     } else if (response.status === 401) {
       // authentication for user
       location.href =

@@ -2,7 +2,13 @@
     <div class="mailItem">
         <div class="index">{{index}} / {{num}}</div>
         <div class="content">
-            {{content}}
+            <div class="text" v-show="isShow">
+              {{content}}
+            </div>
+            <div class="audio" v-show="!isShow">
+              <div class="tip">{{tip}}</div>
+              <Audio ref="myAudioOne" :myAudioUrl="content"></Audio>
+            </div>
         </div>
         <img :src="logo" class="logo"/>
         </div>
@@ -11,16 +17,46 @@
 
 import logo from '../assets/logo.png'
 
+import Audio from '../components/audio'
+
 export default {
   name: 'mailItem',
   props: {
     index: Number,
     num: Number,
-    content: String
+    content: String,
+    type: String
+  },
+  components: {
+    Audio
+  },
+  watch: {
+
+    'dialogVisible': function (val) {
+      const self = this
+
+      self.$refs.myAudioOne.init()
+
+      self.$refs.myAudioOne.audioEnded()
+    }
+
   },
   data: function () {
     return {
-      logo: logo
+      logo: logo,
+      isShow: true,
+      tip: '快来听听ta的问候吧~'
+    }
+  },
+  mounted () {
+    console.log(this.type)
+    switch (this.type) {
+      case 'text':
+        this.isShow = true;
+        break
+      case 'audio':
+        this.isShow = false
+        break
     }
   }
 }
@@ -55,6 +91,9 @@ export default {
   width: 67vw;
   margin-top: 11vh;
   line-height: 4vh;
+}
+.text {
+  word-wrap: break-word;
 }
 .logo {
   width: 20vw;

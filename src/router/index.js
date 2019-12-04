@@ -9,6 +9,7 @@ import questionCapsule from '../views/questionCapsule.vue'
 import questionCapsuleSubmit from '../views/questionCapsule-submit.vue'
 import questionCapsuleReplyComapre from '../views/questionCapsule-replyCompare.vue'
 import mails from '../views/mails.vue'
+import mailsNonparticipant from '../views/mails-nonparticipant.vue'
 import questionCapsuleNonparticipant from '../views/questionCapsule-nonparticipant.vue'
 
 Vue.use(VueRouter)
@@ -26,58 +27,96 @@ const routes = [
   {
     path: '/home-participant',
     name: 'home-participant',
-    component: homeParticipant
+    component: homeParticipant,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
   {
     path: '/home-nonparticipant',
     name: 'home-nonparticipant',
-    component: homeNonparticipant
+    component: homeNonparticipant,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
 
   // 时光胶囊
   {
     path: '/timeCapsule/getMail',
     name: 'timeCapsule-getMail',
-    component: timeCapsuleGetMail
+    component: timeCapsuleGetMail,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
   {
     path: '/timeCapsule/mail',
     name: 'timeCapsule-mail',
-    component: timeCapsuleMail
+    component: timeCapsuleMail,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
   {
     path: '/timeCapsule/audio',
     name: 'timeCapsule-audio',
-    component: timeCapsuleAudio
+    component: timeCapsuleAudio,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
 
   // 问题胶囊
   {
     path: '/questionCapsule',
     name: 'questionCapsule',
-    component: questionCapsule
+    component: questionCapsule,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
   {
     path: '/questionCapsule/submit',
     name: 'questionCapsule-submit',
-    component: questionCapsuleSubmit
+    component: questionCapsuleSubmit,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
   {
     path: '/questionCapsule/replyCompare',
     name: 'questionCapsule-replyCompare',
-    component: questionCapsuleReplyComapre
+    component: questionCapsuleReplyComapre,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
   {
     path: '/questionCapsule/nonparticipant',
     name: 'questionCapsule-nonparticipant',
-    component: questionCapsuleNonparticipant
+    component: questionCapsuleNonparticipant,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   },
 
   // 取信二维码
   {
     path: '/mails',
     name: 'mails',
-    component: mails
+    component: mails,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
+  },
+  {
+    path: '/mails/nonparticipant',
+    name: 'mails-nonparticipant',
+    component: mailsNonparticipant,
+    meta: {
+      title: '百步梯·时光胶囊'
+    }
   }
 
 ]

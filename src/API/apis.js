@@ -26,16 +26,22 @@ export async function getTimecapsuleMail (mailCode) {
     return false
   } else {
     let res = await get(baseUrl + '/time_capsule/' + mailCode)
-    if (res) {
+    if (res !== undefined) {
       window.sessionStorage.setItem('mailContent', JSON.stringify(res))
       return true
+    } else {
+      Message({
+        message: '抱歉，您的取信码无效',
+        type: 'error'
+      })
+      return false
     }
   }
 }
 
 export async function getQuestionCapsules () {
   let res = await get(baseUrl + '/question_capsules')
-  if (res.length) {
+  if (res) {
     window.sessionStorage.setItem('capsules', JSON.stringify(res))
     return true
   } else return false
@@ -58,14 +64,10 @@ export async function submitReply (id, reply) {
 
 export async function getMails () {
   let res = await get(baseUrl + '/time_capsules')
-  if (res.length) {
+  if (res) {
     window.sessionStorage.setItem('mails', JSON.stringify(res))
     return true
   } else {
-    Message({
-      message: '没有可取信件',
-      type: 'error'
-    })
     return false
   }
 }

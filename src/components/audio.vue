@@ -135,6 +135,7 @@ export default {
   margin: 3vw auto;
   width: 100%;
   height: 10vw;
+  border-radius: 1vw;
 }
 
 .audio-left {

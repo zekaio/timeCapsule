@@ -5,7 +5,7 @@
       </div>
         <swiper :options="swiperOption">
           <swiper-slide v-for="(mail,key,index) in mails" :key="index">
-            <mailItem :content="mail.content" :index="key+1" :num="mailNum"/>
+            <mailItem :content="mail.content" :index="key+1" :num="mailNum" :type="mail.type"/>
           </swiper-slide>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
@@ -36,6 +36,7 @@ export default {
       mailNum: 0,
       backBtn: backBtn,
       mails: [],
+      type: '',
       swiperOption: {
         navigation: {
           nextEl: '.swiper-button-next',
@@ -97,5 +98,8 @@ export default {
 }
 .swiper-button-prev.swiper-button-disabled,.swiper-button-next.swiper-button-disabled {
   opacity: 0;
+}
+.mailItem >>> .audio-wrapper {
+  border: 0.5vw solid #a8bee3;
 }
 </style>

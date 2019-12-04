@@ -62,6 +62,10 @@ export default {
         this.$router.push({
           path: '/mails'
         })
+      } else {
+        this.$router.push({
+          path: '/mails/nonparticipant'
+        })
       }
     }
   }

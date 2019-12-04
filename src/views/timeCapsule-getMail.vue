@@ -147,11 +147,11 @@ export default {
 }
 .chatFrame {
   background-image: url('../assets/chatFrame.png');
-  background-size: 102%;
+  background-size: 100%;
   display: flex;
   justify-content: center;
   width: 50vw;
-  height: 42vw;
+  height: 41vw;
 }
 .tip {
   font-family: 'MicrosoftYaHeiUI';
@@ -166,6 +166,7 @@ export default {
   color:#666666;
   margin-top: 5vw;
   margin-left: 5vw;
+  width: 44vw;
   /* position:absolute;
   right: 24vw;
   bottom: 28vw; */
