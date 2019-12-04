@@ -4,6 +4,7 @@ import homeParticipant from '../views/home-participant.vue'
 import homeNonparticipant from '../views/home-nonparticipant.vue'
 import timeCapsuleGetMail from '../views/timeCapsule-getMail.vue'
 import timeCapsuleMail from '../views/timeCapsule-mail.vue'
+import timeCapsuleAudio from '../views/timeCapsule-audio.vue'
 import questionCapsule from '../views/questionCapsule.vue'
 import questionCapsuleSubmit from '../views/questionCapsule-submit.vue'
 import questionCapsuleReplyComapre from '../views/questionCapsule-replyCompare.vue'
@@ -43,6 +44,11 @@ const routes = [
     path: '/timeCapsule/mail',
     name: 'timeCapsule-mail',
     component: timeCapsuleMail
+  },
+  {
+    path: '/timeCapsule/audio',
+    name: 'timeCapsule-audio',
+    component: timeCapsuleAudio
   },
 
   // 问题胶囊
