@@ -1,7 +1,9 @@
 <template>
     <div class="timeCapsuleMail">
         <div class="container">
-            <div class="content">{{content}}</div>
+            <div class="content" v-html="content">
+              {{content}}
+            </div>
             <img :src="logo" class="logo"/>
         </div>
         <div class="btn more" @click="getMore">

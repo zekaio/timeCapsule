@@ -2,7 +2,7 @@
     <div class="mailItem">
         <div class="index">{{index}} / {{num}}</div>
         <div class="content">
-            <div class="text" v-show="isShow">
+            <div class="text" v-show="isShow" v-html="content">
               {{content}}
             </div>
             <div class="audio" v-show="!isShow">
