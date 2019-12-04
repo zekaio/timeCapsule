@@ -13,10 +13,11 @@ export default {
     return {
     }
   },
-  mounted () {
+  async mounted () {
     // checkLogin()
     // if (window.sessionStorage.getItem('isLogin') === 'undefined') { window.sessionStorage.setItem('isLogin', checkLogin()) }
-    if (isParticipant()) {
+    let res = await isParticipant()
+    if (res) {
       this.$router.push({
         path: '/home-participant'
       })
