@@ -89,8 +89,10 @@ export default {
 }
 .content {
   width: 67vw;
+  height: 40vh;
   margin-top: 11vh;
   line-height: 4vh;
+  overflow: scroll;
 }
 .text {
   word-wrap: break-word;

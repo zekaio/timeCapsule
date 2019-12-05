@@ -70,7 +70,9 @@ export default {
 }
 .content,.video {
   width: 72vw;
+  height: 45vh;
   margin-top: 4vh;
+  overflow: scroll;
 }
 .logo {
   width: 20vw;

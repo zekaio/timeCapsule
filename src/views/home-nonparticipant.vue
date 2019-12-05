@@ -58,9 +58,19 @@ export default {
     async getMail () {
       let res = await getTimecapsuleMail(this.code)
       if (res) {
-        this.$router.push({
-          path: '/timeCapsule/mail'
-        })
+        let type = JSON.parse(window.sessionStorage.getItem('mailContent')).type
+        switch (type) {
+          case 'text':
+            this.$router.push({
+              path: '/timeCapsule/mail'
+            })
+            break
+          case 'audio':
+            this.$router.push({
+              path: '/timeCapsule/audio'
+            })
+            break
+        }
       }
     }
   }
