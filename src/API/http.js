@@ -48,6 +48,11 @@ instance.interceptors.response.use(
       //   message: '未找到信件',
       //   type: 'error'
       // })
+    } else if (response.status === 400) {
+      Message({
+        message: '取件码长度为6位',
+        type: 'error'
+      })
     } else if (response.status === 401) {
       // authentication for user
       location.href =

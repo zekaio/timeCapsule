@@ -123,7 +123,7 @@ export default {
     background-color: transparent;
     width: 67vw;
     padding-left: 1vw;
-    height: 5vh;
+    height: 8.9vw;
     outline:none;
 }
 .btn img {

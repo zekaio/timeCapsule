@@ -100,13 +100,14 @@ export default {
   background-color: transparent;
   width: 67vw;
   padding-left: 1vw;
-  height: 5vh;
+  height: 8.9vw;
   color:#666666;
   outline:none;
 }
 .btn img {
   width: 45vw;
   margin-top: 22vw;
+  z-index: 100;
 }
 .star img {
   width: 72vw;

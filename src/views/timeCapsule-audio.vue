@@ -82,6 +82,7 @@ export default {
 }
 .btn img {
   width: 45vw;
+  z-index: 100;
 }
 .more {
   margin-top: 15vh;

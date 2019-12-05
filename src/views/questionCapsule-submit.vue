@@ -116,13 +116,14 @@ export default {
     border: 0.5vw solid #a8bee3;
     background-color: transparent;
     width: 70vw;
-    height: 10vh;
+    height: 17.8vw;
     color:#666666;
     outline:none;
 }
 .btn img {
   width: 45vw;
   margin-top: 8vh;
+  z-index: 100;
 }
 .star img {
   width: 72vw;

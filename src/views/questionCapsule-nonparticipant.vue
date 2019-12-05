@@ -42,6 +42,7 @@ export default {
 .btn img {
   width: 45vw;
   margin-top: 35vw;
+  z-index: 100;
 }
 .tip {
   font-family: 'MicrosoftYaHeiUI';
