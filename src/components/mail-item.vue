@@ -97,6 +97,9 @@ export default {
 .text {
   word-wrap: break-word;
 }
+.audio {
+  width: 62vw;
+}
 .logo {
   width: 20vw;
   position: absolute;
