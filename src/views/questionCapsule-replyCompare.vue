@@ -46,7 +46,7 @@ export default {
 }
 .btn img {
   width: 45vw;
-  margin-top: 8vh;
+  margin-top: 14.24vw;
 }
 .questionFrame {
   width: 80vw;
@@ -61,7 +61,7 @@ export default {
   font-size:3.5vw;
   color:#666666;
   position: absolute;
-  top: 18vh;
+  top: 32.04vw;
   left: 27vw;
   width: 55vw;
 }
@@ -71,7 +71,7 @@ export default {
   font-size:3.5vw;
   color:#666666;
   position: absolute;
-  top: 39.5vh;
+  top: 70.31vw;
   left: 27vw;
 }
 .now-reply {
@@ -80,7 +80,7 @@ export default {
   font-size:3.5vw;
   color:#666666;
   position: absolute;
-  top: 56vh;
+  top: 99.68vw;
   left: 27vw;
 }
 </style>

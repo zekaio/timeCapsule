@@ -108,8 +108,8 @@ export default {
   justify-content: center;
 }
 .title img {
-  margin-top: 12vh;
-  margin-bottom: 4vh;
+  margin-top: 21.36vw;
+  margin-bottom: 7.12vw;
   width: 81vw;
 }
 .input p {
@@ -128,7 +128,7 @@ export default {
 }
 .btn img {
   width: 45vw;
-  margin-top: 10vh;
+  margin-top: 17.8vw;
 }
 .Tboy img {
   width: 20vw;

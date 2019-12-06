@@ -82,7 +82,7 @@ export default {
 }
 .btn img {
   width: 45vw;
-  margin-top: 8vh;
+  margin-top: 6vh;
 }
 .swiper-button-prev {
   opacity: 0.35;

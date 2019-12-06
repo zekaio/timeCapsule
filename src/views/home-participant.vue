@@ -79,8 +79,8 @@ export default {
   justify-content: center;
 }
 .title img {
-  margin-top: 12vh;
-  margin-bottom: 7vh;
+  margin-top: 21.36vw;
+  margin-bottom: 12.46vw;
   width: 81vw;
 }
 .btn img {
@@ -88,12 +88,12 @@ export default {
 }
 .bg img {
   width: 43vw;
-  height: 47vh;
+  height: 83.66vw;
   position: absolute;
   right: 0;
-  bottom: 2vh;
+  bottom: 3.56vw;
 }
 .btn {
-  margin-bottom: 5vh;
+  margin-bottom: 8.9vw;
 }
 </style>

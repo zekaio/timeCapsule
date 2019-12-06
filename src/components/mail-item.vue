@@ -69,6 +69,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3vh;
+  margin-bottom: 2vh;
   font-family: 'MicrosoftYaHeiUI';
   font-size:3.3vw;
   color:#666666;

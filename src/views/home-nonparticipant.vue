@@ -90,14 +90,14 @@ export default {
 }
 .text {
     width: 77vw;
-    margin-top: 16vh;
-    line-height: 4vh;
+    margin-top: 28.5vw;
+    line-height: 7.12vw;
     font-family: 'MicrosoftYaHeiUI';
     font-size:3.7vw;
     color:#666666;
 }
 .input {
-  margin-top: 4vh;
+  margin-top: 7.12vw;
 }
 .input p {
   font-family: 'MicrosoftYaHeiUI';

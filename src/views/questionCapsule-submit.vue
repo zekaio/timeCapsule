@@ -104,7 +104,7 @@ export default {
   margin-left: 18vw;
 }
 .now-reply {
-  margin-top: 6vh;
+  margin-top: 10.68vw;
 }
 .now-reply p {
   font-family: 'MicrosoftYaHeiUI';
@@ -119,10 +119,11 @@ export default {
     height: 17.8vw;
     color:#666666;
     outline:none;
+    resize:none;
 }
 .btn img {
   width: 45vw;
-  margin-top: 8vh;
+  margin-top: 14.24vw;
   z-index: 100;
 }
 .star img {
