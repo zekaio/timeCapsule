@@ -49,7 +49,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.type)
     switch (this.type) {
       case 'text':
         this.isShow = true;
