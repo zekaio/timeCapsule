@@ -1,96 +1,36 @@
-import {
-  get,
-  post
-} from './http'
-import {
-  baseUrl
-} from './api.config'
-import wx from 'weixin-js-sdk'
-import qs from 'qs'
-import {
-  Message
-} from 'element-ui'
+import { get } from './http'
+import { baseUrl } from './api.config'
+import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-export async function isParticipant () {
+export async function isParticipant() {
   let res = await get(baseUrl + '/info')
   return res.participated
 }
 
-export async function getTimecapsuleMail (mailCode) {
+// 取信码
+export async function getTimecapsuleMail(mailCode) {
   if (mailCode.length === 0) {
     Message({
-      message: '取件码长度不能为空',
+      message: '取信码长度不能为空',
       type: 'error'
     })
-    return false
-  } else {
-    let res = await get(baseUrl + '/time_capsule/' + mailCode)
-    if (res !== undefined) {
-      window.sessionStorage.setItem('mailContent', JSON.stringify(res))
-      return true
-    } else {
-      Message({
-        message: '抱歉，您的取信码无效',
-        type: 'error'
-      })
-      return false
-    }
+    return
   }
+  return await get(baseUrl + '/timecapsules/code', { code: mailCode })
 }
 
-export async function getQuestionCapsules () {
-  let res = await get(baseUrl + '/question_capsules')
-  if (res) {
-    window.sessionStorage.setItem('capsules', JSON.stringify(res))
-    return true
-  } else return false
+// 写给自己
+export async function getSelfTimecapsuleMail(offset) {
+  return await get(baseUrl + '/timecapsules/me', { offset })
 }
 
-export async function submitReply (id, reply) {
-  if (reply.length === 0) {
-    Message({
-      message: '长度不能为空',
-      type: 'error'
-    })
-    return false
-  } else {
-    await post(baseUrl + '/question_capsule/' + id, {
-      answer: reply
-    })
-    return true
-  }
+// 取信二维码
+export async function getQRcodeTimecapsuleMail(offset) {
+  return await get(baseUrl + '/timecapsules/qrcode', { offset })
 }
 
-export async function getMails () {
-  let res = await get(baseUrl + '/time_capsules')
-  if (res) {
-    window.sessionStorage.setItem('mails', JSON.stringify(res))
-    return true
-  } else {
-    return false
-  }
-}
-
-export function wxlogin () {
-  fetch('https://hemc.100steps.net/2017/wechat/Home/Public/getJsApi', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: qs.stringify({
-      url: location.href.split('#')[0]
-    })
-  })
-    .then(res => res.json())
-    .then(res => {
-      wx.config({
-        debug: false,
-        appId: res.appId,
-        timestamp: res.timestamp,
-        nonceStr: res.nonceStr,
-        signature: res.signature
-        // jsApiList: ["updateTimelineShareData", "updateAppMessageShareData"]
-      })
-    })
+// 陌生人
+export async function getStrangerTimecapsuleMail() {
+  return await get(baseUrl + '/timecapsules/stranger')
 }

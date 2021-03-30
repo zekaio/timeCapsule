@@ -1,8 +1,5 @@
 import axios from 'axios'
-import {
-  Loading,
-  Message
-} from 'element-ui'
+import { Loading, Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 let loadingInstance = null // 加载全局的loading
@@ -43,27 +40,38 @@ instance.interceptors.response.use(
   error => {
     loadingInstance.close()
     let response = error.response
-    if (response.status === 404) {
-      // Message({
-      //   message: '未找到信件',
-      //   type: 'error'
-      // })
-    } else if (response.status === 400) {
+    if (!response) {
       Message({
-        message: '取件码长度为6位',
+        message: '服务器无法响应，请稍后再试',
         type: 'error'
       })
-    } else if (response.status === 401) {
-      // authentication for user
-      location.href =
-        'https://hemc.100steps.net/2017/wechat/Home/Index/index?state=' +
-        encodeURIComponent(location.href)
     } else {
-      Message({
-        message: '请求超时, 请刷新重试',
-        type: 'error'
-      })
-      return Promise.reject(new Error('请求超时, 请刷新重试'))
+      switch (response.status) {
+        // 未登录
+        case 401:
+          // window.location.href = `https://hemc.100steps.net/2020/wechat/auth?state=${encodeURIComponent(
+          //   window.location.href
+          // )}`
+          Message({
+            message: '请先登录',
+            type: 'error'
+          })
+          break
+        // 服务器错误
+        case 500:
+          Message({
+            message: '服务器错误，请稍后再试',
+            type: 'error'
+          })
+          break
+        default:
+          Message({
+            message: response.data.message,
+            type: 'error'
+          })
+          break
+      }
+      return new Promise(() => {})
     }
   }
 )
@@ -73,7 +81,7 @@ instance.interceptors.response.use(
  * @param {String} url 请求的url地址
  * @param {Object} params 请求时携带的参数
  */
-export function get (url, params, config = {}) {
+export function get(url, params, config = {}) {
   return new Promise((resolve, reject) => {
     instance({
       method: 'get',
@@ -95,7 +103,7 @@ export function get (url, params, config = {}) {
  * @param {String} url 请求的url地址
  * @param {Object} data 请求时携带的参数
  */
-export function post (url, data, config = {}) {
+export function post(url, data, config = {}) {
   return new Promise((resolve, reject) => {
     instance({
       method: 'post',

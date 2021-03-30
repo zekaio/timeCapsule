@@ -4,15 +4,14 @@
   </div>
 </template>
 <script>
-import { isParticipant, wxlogin } from './API/apis'
+import { isParticipant } from './API/apis'
 
 export default {
   name: 'app',
-  data () {
+  data() {
     return {}
   },
-  async mounted () {
-    wxlogin()
+  async mounted() {
     let res = await isParticipant()
     if (res) {
       this.$router.push({

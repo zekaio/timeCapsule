@@ -1,22 +1,21 @@
 <template>
-    <div class="timeCapsuleMail">
-        <div class="container">
-            <div class="tip">{{tip}}</div>
-            <Audio ref="myAudioOne" :myAudioUrl="url"></Audio>
-        </div>
-        <div class="btn more" @click="getMore">
-          <img :src="getMoreBtn" />
-        </div>
-        <div class="btn back" @click="back">
-          <img :src="backBtn" />
-        </div>
-        <div class="star">
-          <img :src="star" />
-        </div>
+  <div class="timeCapsuleMail">
+    <div class="container">
+      <div class="tip">{{ tip }}</div>
+      <Audio ref="myAudioOne" :myAudioUrl="url"></Audio>
     </div>
+    <div class="btn more" @click="getMore">
+      <img :src="getMoreBtn" />
+    </div>
+    <div class="btn back" @click="back">
+      <img :src="backBtn" />
+    </div>
+    <div class="star">
+      <img :src="star" />
+    </div>
+  </div>
 </template>
 <script>
-
 import getMoreBtn from '../assets/getMore-btn.png'
 import backBtn from '../assets/back-btn.png'
 import star from '../assets/star.png'
@@ -29,17 +28,15 @@ export default {
     Audio
   },
   watch: {
-
-    'dialogVisible': function (val) {
+    dialogVisible: function() {
       const self = this
 
       self.$refs.myAudioOne.init()
 
       self.$refs.myAudioOne.audioEnded()
     }
-
   },
-  data () {
+  data() {
     return {
       url: '',
       getMoreBtn: getMoreBtn,
@@ -48,14 +45,14 @@ export default {
       tip: '快来听听ta的问候吧~'
     }
   },
-  mounted () {
+  mounted() {
     this.url = JSON.parse(window.sessionStorage.getItem('mailContent')).content
   },
   methods: {
-    getMore () {
+    getMore() {
       this.$router.push({ path: '/timeCapsule/getMail' })
     },
-    back () {
+    back() {
       this.$router.push({ path: '/home-participant' })
     }
   }
@@ -76,8 +73,8 @@ export default {
   margin-right: auto;
   margin-top: 45vw;
   font-family: 'MicrosoftYaHeiUI';
-  font-size:3.8vw;
-  color:#666666;
+  font-size: 3.8vw;
+  color: #666666;
   position: relative;
 }
 .btn img {

@@ -1,35 +1,40 @@
 <template>
-    <div class="participant">
-        <div class="title">
-            <img :src="title" />
-        </div>
-        <div class="btn" @click="goToTimeCapsule">
-          <img :src="timeCapsuleBtn" />
-        </div>
-        <div class="btn" @click="goToQuestionCapsule">
-          <img :src="questionCapsuleBtn" />
-        </div>
-        <div class="btn" @click="goToGetMail">
-          <img :src="mailCodeBtn" />
-        </div>
-        <div class="bg" >
-          <img :src="clock" />
-        </div>
+  <div class="participant">
+    <div class="title">
+      <img :src="title" />
     </div>
+    <div class="btn" @click="goToTimeCapsule">
+      <img :src="timeCapsuleBtn" />
+    </div>
+    <div class="btn" @click="goToSelfTimeCapsule">
+      <img :src="timeCapsuleBtn" />
+    </div>
+    <div class="btn" @click="goToStrangerTimeCapsule">
+      <img :src="timeCapsuleBtn" />
+    </div>
+    <!-- <div class="btn" @click="goToQuestionCapsule">
+          <img :src="questionCapsuleBtn" />
+        </div> -->
+    <div class="btn" @click="goToGetMail">
+      <img :src="mailCodeBtn" />
+    </div>
+    <div class="bg">
+      <img :src="clock" />
+    </div>
+  </div>
 </template>
 <script>
-
 import clock from '../assets/background.png'
 import title from '../assets/title.png'
 import timeCapsuleBtn from '../assets/timeCapsule-btn.png'
 import questionCapsuleBtn from '../assets/questionCapsule-btn.png'
 import mailCodeBtn from '../assets/mailCode.png'
 
-import { getQuestionCapsules, getMails } from '../API/apis'
+// import { getQuestionCapsules, getMails } from '../API/apis'
 
 export default {
   name: 'home_participant',
-  data: function () {
+  data: function() {
     return {
       title: title,
       timeCapsuleBtn: timeCapsuleBtn,
@@ -39,34 +44,56 @@ export default {
     }
   },
   methods: {
-    goToTimeCapsule () {
+    goToTimeCapsule() {
       this.$router.push({
         path: '/timeCapsule/getMail'
       })
     },
-    async goToQuestionCapsule () {
-      let res = await getQuestionCapsules()
-      if (res) {
-        this.$router.push({
-          path: '/questionCapsule'
-        })
-      } else {
-        this.$router.push({
-          path: '/questionCapsule/nonparticipant'
-        })
-      }
+    goToSelfTimeCapsule() {
+      this.$router.push({
+        path: '/timeCapsule/mail',
+        query: {
+          type: 'self'
+        }
+      })
     },
-    async goToGetMail () {
-      let res = await getMails()
-      if (res) {
-        this.$router.push({
-          path: '/mails'
-        })
-      } else {
-        this.$router.push({
-          path: '/mails/nonparticipant'
-        })
-      }
+    goToStrangerTimeCapsule() {
+      this.$router.push({
+        path: '/timeCapsule/mail',
+        query: {
+          type: 'stranger'
+        }
+      })
+    },
+    // async goToQuestionCapsule() {
+    //   let res = await getQuestionCapsules()
+    //   if (res) {
+    //     this.$router.push({
+    //       path: '/questionCapsule'
+    //     })
+    //   } else {
+    //     this.$router.push({
+    //       path: '/questionCapsule/nonparticipant'
+    //     })
+    //   }
+    // },
+    async goToGetMail() {
+      this.$router.push({
+        path: '/timeCapsule/mail',
+        query: {
+          type: 'qrcode'
+        }
+      })
+      // let res = await getMails()
+      // if (res) {
+      //   this.$router.push({
+      //     path: '/mails'
+      //   })
+      // } else {
+      //   this.$router.push({
+      //     path: '/mails/nonparticipant'
+      //   })
+      // }
     }
   }
 }

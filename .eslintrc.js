@@ -3,16 +3,14 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/essential', '@vue/standard'],
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    semi: 'off',
-    quotes: ['error', 'single'],
-    'no-extra-semi': 'off',
-    'space-before-function-paren': 'error'
-  },
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
   parserOptions: {
     parser: 'babel-eslint'
+  },
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    quotes: ['error', 'single'],
+    semi: ['error', 'never']
   }
 }
