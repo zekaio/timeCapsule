@@ -29,7 +29,7 @@
 <script>
 import title from '../assets/title.png'
 import getMailBtn from '../assets/getMail-btn.png'
-import Tboy from '../assets/Tboy.png'
+// import Tboy from '../assets/Tboy.png'
 import chatFrame from '../assets/chatFrame.png'
 import arrow from '../assets/arrow.png'
 import backBtn from '../assets/back-btn.png'
@@ -44,7 +44,7 @@ export default {
       title: title,
       getMailBtn: getMailBtn,
       backBtn,
-      Tboy: Tboy,
+      // Tboy: Tboy,
       chatFrame: chatFrame,
       arrow: arrow,
       isClick: false,

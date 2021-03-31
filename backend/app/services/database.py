@@ -76,6 +76,7 @@ def get_qrcode_timecapsule(openid: str, offset: int) -> dict:
 
 
 def get_code_timecapsule(code: str) -> dict:
+    code = code.upper()
     capsule: ToTaCapsules = (
         ToTaCapsules
             .query

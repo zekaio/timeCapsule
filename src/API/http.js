@@ -49,13 +49,13 @@ instance.interceptors.response.use(
       switch (response.status) {
         // 未登录
         case 401:
-          // window.location.href = `https://hemc.100steps.net/2020/wechat/auth?state=${encodeURIComponent(
-          //   window.location.href
-          // )}`
-          Message({
-            message: '请先登录',
-            type: 'error'
-          })
+          window.location.href = `https://hemc.100steps.net/2020/wechat/auth?state=${encodeURIComponent(
+            window.location.href
+          )}`
+          // Message({
+          //   message: '请先登录',
+          //   type: 'error'
+          // })
           break
         // 服务器错误
         case 500:
