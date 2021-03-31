@@ -4,13 +4,13 @@
       <img :src="title" />
     </div>
     <div class="btn" @click="goToTimeCapsule">
-      <img :src="timeCapsuleBtn" />
+      <img :src="toTaBtn" />
     </div>
     <div class="btn" @click="goToSelfTimeCapsule">
-      <img :src="timeCapsuleBtn" />
+      <img :src="selfBtn" />
     </div>
     <div class="btn" @click="goToStrangerTimeCapsule">
-      <img :src="timeCapsuleBtn" />
+      <img :src="strangerBtn" />
     </div>
     <!-- <div class="btn" @click="goToQuestionCapsule">
           <img :src="questionCapsuleBtn" />
@@ -30,6 +30,10 @@ import timeCapsuleBtn from '../assets/timeCapsule-btn.png'
 import questionCapsuleBtn from '../assets/questionCapsule-btn.png'
 import mailCodeBtn from '../assets/mailCode.png'
 
+import toTaBtn from '../assets/tota.png'
+import selfBtn from '../assets/self.png'
+import strangerBtn from '../assets/stranger.png'
+
 // import { getQuestionCapsules, getMails } from '../API/apis'
 
 export default {
@@ -40,7 +44,10 @@ export default {
       timeCapsuleBtn: timeCapsuleBtn,
       questionCapsuleBtn: questionCapsuleBtn,
       mailCodeBtn: mailCodeBtn,
-      clock: clock
+      clock: clock,
+      toTaBtn,
+      selfBtn,
+      strangerBtn
     }
   },
   methods: {

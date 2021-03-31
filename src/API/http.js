@@ -71,8 +71,8 @@ instance.interceptors.response.use(
           })
           break
       }
-      return new Promise(() => {})
     }
+    return new Promise(() => {})
   }
 )
 
